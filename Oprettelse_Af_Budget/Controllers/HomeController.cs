@@ -12,6 +12,7 @@ namespace Oprettelse_Af_Budget.Controllers
         public ActionResult Index()
         {
             return View();
+            //Sami er en ged
         }
     }
 }
