@@ -13,6 +13,7 @@ namespace Oprettelse_Af_Budget.Controllers
         {
             return View();
             //Sami er en G*
+            //Sami Stinker
         }
     }
 }
