@@ -21,7 +21,7 @@ namespace Oprettelse_Af_Budget.Models
                     connection = new SqlConnection(ConfigurationManager.ConnectionStrings["post"].ConnectionString);
                 connection.Open();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 //MessageBox.Show(ex.Message);
             }
@@ -39,7 +39,7 @@ namespace Oprettelse_Af_Budget.Models
                     }
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 //MessageBox.Show(ex.Message);
             }
