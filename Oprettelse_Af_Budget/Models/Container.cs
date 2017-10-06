@@ -9,8 +9,8 @@ namespace Oprettelse_Af_Budget.Models
     {
         public string Text { get; set; }
         public double Value { get; set; }
-        public int FK_Category { get; set; }
-        public int SubCategory { get; set; }
+        public int FK_CategoryID { get; set; }
+        public int FK_SubCategory { get; set; }
 
     }
 }

@@ -1,6 +1,6 @@
-﻿using System;
+﻿using Oprettelse_Af_Budget.Models;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -27,7 +27,7 @@ namespace Oprettelse_Af_Budget.Controllers
             try
             {
                 var domainModel = new DB();
-                domainModel.CreateSomething(cm);
+                domainModel.AddTransaction(cm);
                 return RedirectToAction("Index");
             }
             catch
