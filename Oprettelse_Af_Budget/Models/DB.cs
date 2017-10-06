@@ -21,7 +21,7 @@ namespace Oprettelse_Af_Budget.Models
                     connection = new SqlConnection(ConfigurationManager.ConnectionStrings["post"].ConnectionString);
                 connection.Open();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 //MessageBox.Show(ex.Message);
             }
@@ -39,7 +39,7 @@ namespace Oprettelse_Af_Budget.Models
                     }
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 //MessageBox.Show(ex.Message);
             }
@@ -47,18 +47,18 @@ namespace Oprettelse_Af_Budget.Models
 
 
 
-        static public void AddBudget()
+        static public void AddTransaction(Container model)
         {   
             CreateConnection();
 
             string query = string.Format("INSERT INTO Transaction(Text, Value, Date, FK_CategoryID, FK_SubCategory) VALUES (@navn, @value, @date, @fk_categoryid, @fk_subcategory)");
             SqlCommand ImportData = new SqlCommand(query, connection);
 
-            //ImportData.Parameters.AddWithValue("@text", budget.Text);
-            //ImportData.Parameters.AddWithValue("@value", budget.Value);
-            //ImportData.Parameters.AddWithValue("@date", DateTime.Now.ToString());
-            //ImportData.Parameters.AddWithValue("@fk_categoryid", budget.FK_CategoryID);
-            //ImportData.Parameters.AddWithValue("@fk_subcategory", budget.FK_SubCategory);
+            ImportData.Parameters.AddWithValue("@text", model.Text);
+            ImportData.Parameters.AddWithValue("@value", model.Value);
+            ImportData.Parameters.AddWithValue("@date", DateTime.Now.ToString());
+            ImportData.Parameters.AddWithValue("@fk_categoryid", model.FK_CategoryID);
+            ImportData.Parameters.AddWithValue("@fk_subcategory", model.FK_SubCategory);
 
             ImportData.ExecuteNonQuery();
 
