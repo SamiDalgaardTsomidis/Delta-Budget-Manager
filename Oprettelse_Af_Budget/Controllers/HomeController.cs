@@ -15,5 +15,9 @@ namespace Oprettelse_Af_Budget.Controllers
             //Sami er en G*
             //Sami Stinker
         }
+        public ActionResult Create()
+        {
+            return View();
+        }
     }
 }
