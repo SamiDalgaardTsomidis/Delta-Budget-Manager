@@ -1,7 +1,19 @@
-﻿
+﻿@model Oprettelse_Af_Budget.Models.Container
 @{
     ViewBag.Title = "Create";
 }
 
 <h2>Create</h2>
 
+@using (Html.BeginForm())
+{
+    <p>
+        Name :
+        @Html.EditorFor(m=>m.Text)
+    </p>
+    <p>
+        Value :
+        @Html.EditorFor(m=>m.Value)
+    </p>
+        <input type="submit" value="Create" />
+}

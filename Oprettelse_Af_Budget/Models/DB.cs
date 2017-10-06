@@ -47,18 +47,18 @@ namespace Oprettelse_Af_Budget.Models
 
 
 
-        static public void AddTransaction(Container model)
+        public void AddTransaction(Container model)
         {   
             CreateConnection();
 
-            string query = string.Format("INSERT INTO Transaction(Text, Value, Date, FK_CategoryID, FK_SubCategory) VALUES (@navn, @value, @date, @fk_categoryid, @fk_subcategory)");
+            string query = string.Format("INSERT INTO Transaction(Text, Value, Date, FK_CategoryID, FK_SubCategoryID) VALUES (@text, @value, @date, @fk_categoryid, @fk_subcategory)");
             SqlCommand ImportData = new SqlCommand(query, connection);
 
             ImportData.Parameters.AddWithValue("@text", model.Text);
             ImportData.Parameters.AddWithValue("@value", model.Value);
-            ImportData.Parameters.AddWithValue("@date", DateTime.Now.ToString());
-            ImportData.Parameters.AddWithValue("@fk_categoryid", model.FK_CategoryID);
-            ImportData.Parameters.AddWithValue("@fk_subcategory", model.FK_SubCategory);
+            ImportData.Parameters.AddWithValue("@date", DateTime.Now.ToString("MM/dd/yyyy HH:mm:ss"));
+            ImportData.Parameters.AddWithValue("@fk_categoryid", 1);
+            ImportData.Parameters.AddWithValue("@fk_subcategory", 1);
 
             ImportData.ExecuteNonQuery();
 
